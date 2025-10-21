@@ -1,4 +1,5 @@
 name: CI Simple
+
 on: [push]
 
 jobs:
@@ -7,5 +8,9 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v3
-      - name: Ejecutar script
-        run: echo '¡Hola desde GitHub Actions!'
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Puedes especificar una versión como '3.10'
+      - name: Ejecutar script Python
+        run: python saludar.py
